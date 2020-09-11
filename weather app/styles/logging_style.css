@@ -1,0 +1,71 @@
+*{
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+  font-size: 100%;
+  font-family: sans-serif;
+}
+section {
+  width: 600px;
+  height: 90vh;
+  background-color: #f8f8ff;
+  background-image: url(../images/cloudweather-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5vh auto;
+  border-radius: 5px;
+  padding-top: 45vh;
+}
+  p{
+    font-size: 70%;
+    margin-bottom: 10px;
+    padding: 0px 15%;
+  }
+  span{
+    background-color: rgb(168, 187, 209);
+  }
+  label{
+    width: 70%;
+    margin: 0px 15%;
+    display: inline-block;
+  }
+  .logstyle {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 15%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  input[type=submit] {
+    width: 50%;
+    background-color: #4ea0ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 25%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #61aed1;
+  }
+  @media only screen and (max-width: 768px) {
+    section {
+      max-width: max-content;
+      max-height: 100vh;
+      background-image: url(../images/cloudweather-bg.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 25px auto auto auto;
+      border-radius: 5px;
+      padding-top: 40vh;
+      overflow: hidden;
+    }
+    p{
+      font-size: 70%;
+      margin-bottom: 25px;
+      padding: 0px 15%;
+    }
+  }

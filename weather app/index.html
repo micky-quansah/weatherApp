@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#00ffff">
+  <title>Smash It</title>
+</head>
+
+<body>
+  <header>
+    <img src="./images/app-banner.png" alt="Smash It" srcset="">
+      <input type="text" name="search" id="search" placeholder="Search location.." >
+      <button name="search_btn" onclick="getInputValue();">Go</button>
+  </header>
+  <div class="container">
+    <div class="current">
+      <p id="location"></p>
+      <p id="date"></p>
+      <p id="mmtemp"></p>
+      <div id="icon"></div>
+      <p id="main"></p>
+      <p id="info"></p>
+      <p id="temp"></p>
+    </div>
+    <div id="forcast">
+      <p id="foo"></p>
+    </div>
+  </div>
+  <script src="./scripts/home.js"></script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker
+               .register('./sw.js')
+               .then(function() { console.log("Service Worker Registered"); })
+               .catch(err => console.log(`Service Worker: Error: ${err}`));
+    }
+    </script>
+</body>
+
+</html>

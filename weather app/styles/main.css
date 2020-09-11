@@ -1,0 +1,137 @@
+*{
+  font-size: 100%;
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: rgb(26, 26, 26);
+}
+body{
+    height: 100vh;
+    background-image: url(../images/pero-kalimero-9BJRGlqoIUk-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(27, 29, 29);
+}
+header{
+  width: 60vw;
+  padding: 10px;
+  margin: 0px auto 20vh auto;
+}
+header > img{
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+input[type=text] {
+  width: 60%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 8px;
+  background-color: white;
+  background-image: url('../images/searchicon.png');
+  background-size: 10px;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  margin: auto;
+  padding: 8px 20px 8px 40px;
+}
+button{
+  height: 25px;
+  width: 25px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background-color: #fff;
+  border: none;
+}
+header::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin: auto;
+  padding: 10px;
+}
+  .current{
+  width: 86.67%;
+  height: 50vh;
+  margin: auto;
+  border-radius: 5px;
+  }
+    .location{
+      font-size: 2rem;
+      text-align: center;
+      margin: 5% auto;
+    }
+  .forcast{
+  width: 86.67%;
+  height: 80vh;
+  margin: 2.5% auto auto auto;
+  border-radius: 5px;
+  background-color: rgba(136, 174, 224, 0.548);
+  }
+
+@media screen and (max-width: 768px){
+  body{
+    height: 100vh;
+    background-image: url(../images/omid-armin-jmSD8f-yJXg-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+header{
+  width: 70vw;
+  height: 10vh;
+  margin: 0px auto 5px auto;
+}
+header > img{
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+input[type=text] {
+  width: 60%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 8px;
+  background-color: white;
+  background-image: url('../images/searchicon.png');
+  background-size: 10px;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  padding: 8px 20px 8px 40px;
+}
+header::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+  .container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    margin: auto;
+  }
+  .current{
+    width: 66.67%;
+    height: 40vh;
+    border-radius: 5px;
+    margin: 10px auto;
+    float: none;
+    }
+    .forcast{
+      width: 66.67%;
+      height: 40vh;
+      border-radius: 5px;
+      margin: 100px auto;
+      float: none;
+    }
+}
