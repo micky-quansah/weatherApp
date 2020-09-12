@@ -1,17 +1,15 @@
-
-function getInputValue(){
-  // Selecting the input element and get its value 
+document.getElementById("bnt_go").addEventListener("click", function() {
   var inputVal = document.getElementById("search").value;
+  let text;
   if (inputVal === ""){
     text = "New York";
   } else {
-    alert(inputVal);
-  text = inputVal;
-  };
-}
-let text;
-let main = async (text = 'new york') => {
+    text = inputVal;
+  }
+  start(text);
+});
 
+let start = async (text = 'new york') => {
   function storageAvailable(type) {
     var storage;
     try {
@@ -32,7 +30,7 @@ let main = async (text = 'new york') => {
   }
 
 
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=8d9dc7032044000e2c81cc8834645ad7`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=8d9dc7032044000e2c81cc8834645ad7`;
 
   let weatherApiResponse = async (url) => {
     const response = await fetch(url);
@@ -40,7 +38,7 @@ let main = async (text = 'new york') => {
     return data
   }
   const getImg = async (icon) => {
-    let imgUrl = `http://openweathermap.org/img/wn/` + icon + `@2x.png`;
+    let imgUrl = `https://openweathermap.org/img/wn/` + icon + `@2x.png`;
     const response1 = await fetch(imgUrl);
     const imgSrc = response1.url;
     console.log(imgSrc);
@@ -48,17 +46,15 @@ let main = async (text = 'new york') => {
   }
 
   try {
-    
     let cInfo = await weatherApiResponse(url);
-    let {coord } = cInfo;
+    let {coord, name} = cInfo;
     let {lon, lat} = coord;
-
     let onecallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=8d9dc7032044000e2c81cc8834645ad7`
     let info = await weatherApiResponse(onecallUrl);
 
     let { current, daily } = info;
     
-    const { weather, temp, dt, feels_like, timezone } = current;
+    const { weather, temp, dt, feels_like} = current;
     const { description, main, icon } = weather[0];
 
     const iconResult = await getImg(icon);
@@ -68,23 +64,20 @@ let main = async (text = 'new york') => {
     var d = new Date(dt * 1000);
     var dayName = allDays[d.getDay()];
     let currentDate = dayName + " " + time;
-
+    
     let currentWeatherInfo = {
       temp: temp,
       feels_like: feels_like,
       currentTime: currentDate,
       main: main,
-      timezone: timezone,
+      cityName: name,
       description: description,
       imgSrc: iconResult
     }
-
-
     let result = JSON.stringify(currentWeatherInfo);
-
     localStorage.setItem("weather", result);
 
-    daily.forEach((element, i) => {
+    daily.forEach((element) => {
       let createForcast = async function () {
 
         const { dt, feels_like, weather } = element;
@@ -114,10 +107,10 @@ let main = async (text = 'new york') => {
             let dailylist = document.getElementById('forcast');
             dailylist.innerHTML += `
           <p style="background-color:#fff; border-bottom-style: solid; border-bottom-color: rgba(68, 227, 255, 0.829); margin:15px auto; width:70% border-bottom: blue; border-radius:3px;">
-          <span style="font-size:70%; padding:0px 5%;"> ${dayNames} </span>
-          <span style="font-size:60%; padding:0px 5%;"> ${dday}&#8451/${devening}&#8451 </span>
-          <span style="padding:0px 5%;"><img src='${dicon}' alt='Weather Icon' style= "width:20px;" ></span>
-          <span style="font-size:70%; padding:0px 5%;"> ${dmain} </span>
+          <span style="font-size:70%; padding:0px 5%; width=30vw;"> ${dayNames} </span>
+          <span style="font-size:60%; padding:0px 5%; width=30vw;"> ${dday}&#8451/${devening}&#8451 </span>
+          <span style="padding:0px 5%; width=30vw;"><img src='${dicon}' alt='Weather Icon' style= "width:20px;" ></span>
+          <span style="font-size:70%; padding:0px 5%; width=30vw;"> ${dmain} </span>
           </p>`;
   
             /* if (dmain === 'rain' || 'storm') {
@@ -135,7 +128,6 @@ let main = async (text = 'new york') => {
         }
       }
       createForcast();
-      document.getElementById('forcast').style.overflow = 'auto';
     });
   }
   catch (e) {
@@ -147,14 +139,14 @@ let main = async (text = 'new york') => {
 
         let weatherApi = JSON.parse(localStorage.getItem('weather'));
         console.log(weatherApi);
-        const { timezone, main, description, imgSrc, temp, feels_like, currentTime } = weatherApi;
+        const { cityName, main, description, imgSrc, temp, feels_like, currentTime } = weatherApi;
 
         document.getElementById('icon').innerHTML = `<img src='${imgSrc}' alt='Weather Icon'>`;
         document.getElementById('info').innerHTML = description;
         document.getElementById('date').innerHTML = currentTime;
         document.getElementById('temp').innerHTML = `It Feels Like ${feels_like}&#8451`;
         document.getElementById('mmtemp').innerHTML = `${temp}&#8451`;
-        document.getElementById('location').innerHTML = text;
+        document.getElementById('location').innerHTML = cityName;
         document.getElementById('main').innerHTML = main;
 
         document.getElementById('icon').style.width = "100px";
@@ -190,6 +182,5 @@ let main = async (text = 'new york') => {
     console.log('finally');
   }
 
-}
-
-main(text);
+};
+start();

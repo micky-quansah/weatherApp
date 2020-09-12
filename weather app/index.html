@@ -18,8 +18,8 @@
 <body>
   <header>
     <img src="./images/app-banner.png" alt="Smash It" srcset="">
-      <input type="text" name="search" id="search" placeholder="Search location.." >
-      <button name="search_btn" onclick="getInputValue();">Go</button>
+    <input type="text" name="search" id="search" placeholder="Search location..">
+    <button name="search_btn" id="bnt_go">Go</button>
   </header>
   <div class="container">
     <div class="current">
@@ -37,13 +37,13 @@
   </div>
   <script src="./scripts/home.js"></script>
   <script>
-    if('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-               .register('./sw.js')
-               .then(function() { console.log("Service Worker Registered"); })
-               .catch(err => console.log(`Service Worker: Error: ${err}`));
+        .register('./sw.js')
+        .then(function () { console.log("Service Worker Registered"); })
+        .catch(err => console.log(`Service Worker: Error: ${err}`));
     }
-    </script>
+  </script>
 </body>
 
 </html>

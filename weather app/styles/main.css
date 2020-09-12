@@ -15,12 +15,13 @@ body{
 }
 header{
   width: 60vw;
-  padding: 10px;
+  padding: 30px;
   margin: 0px auto 20vh auto;
 }
 header > img{
   height: 50px;
   width: 50px;
+  margin-right: 20px;
   float: left;
 }
 input[type=text] {
@@ -35,15 +36,20 @@ input[type=text] {
   background-position: 10px 10px; 
   background-repeat: no-repeat;
   margin: auto;
-  padding: 8px 20px 8px 40px;
+  padding: 12px 20px 12px 40px;
 }
 button{
-  height: 25px;
-  width: 25px;
-  margin-top: 12px;
+  height: 30px;
+  width: 35px;
+  padding: 5px;
+  box-shadow: 5px 5px 3px #444444;;
   border-radius: 3px;
-  background-color: #fff;
+  background-color: rgba(0, 255, 242, 0.849);
   border: none;
+  margin-block-start: 20px;
+}
+button:hover{
+  background-color: rgb(0, 217, 255);
 }
 header::after{
   content: "";
@@ -85,8 +91,9 @@ header::after{
     background-attachment: fixed;
 }
 header{
-  width: 70vw;
+  width: 90vw;
   height: 10vh;
+  padding: 0px;
   margin: 0px auto 5px auto;
 }
 header > img{
@@ -106,7 +113,7 @@ input[type=text] {
   background-position: 10px 10px; 
   background-repeat: no-repeat;
   margin-top: 10px;
-  padding: 8px 20px 8px 40px;
+  padding: 10px 20px 10px 40px;
 }
 header::after{
   content: "";
@@ -116,14 +123,15 @@ header::after{
   .container{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.6fr 1fr;
     grid-gap: 10px;
     margin: auto;
   }
   .current{
     width: 66.67%;
-    height: 40vh;
+    height: 50vh;
     border-radius: 5px;
+    margin-bottom: 30px;
     margin: 10px auto;
     float: none;
     }
