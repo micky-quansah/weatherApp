@@ -1,6 +1,6 @@
 importScripts('./cache-polyfill.js');
 
-let cacheName = 'weatherApp';
+let cacheName = 'weatherApp-v2';
 
 self.addEventListener('install', function(e) {
  e.waitUntil(
@@ -34,9 +34,9 @@ self.addEventListener('install', function(e) {
 self.addEventListener('activate', (e) => {
     console.log('Service Worker: Activated');
     e.waitUntil(
-        caches.keys().then(cacheName => {
+        caches.keys().then(cacheNames => {
             return Promise.all(
-                cacheName.map( cache => {
+                cacheNames.map( cache => {
                     if (cache !== cacheName){
                         console.log('Service Worker: Clearing old cache');
                         return caches.delete(cache);

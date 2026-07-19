@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071a33">
   <link rel="stylesheet" href="./styles/main.css">
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
   <link rel="manifest" href="./site.webmanifest">
-  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#00aba9">
-  <meta name="theme-color" content="#00ffff">
-  <title>Smash It</title>
+  <title>Weatherly — Local weather</title>
 </head>
-
 <body>
-  <header>
-    <img src="./images/app-banner.png" alt="Smash It" srcset="">
-    <input type="text" name="search" id="search" placeholder="Search location..">
-    <button name="search_btn" id="bnt_go">Go</button>
-  </header>
-  <div class="container">
-    <div class="current">
-      <p id="location"></p>
-      <p id="date"></p>
-      <p id="mmtemp"></p>
-      <div id="icon"></div>
-      <p id="main"></p>
-      <p id="info"></p>
-      <p id="temp"></p>
-    </div>
-    <div id="forcast">
-      <p id="foo"></p>
-    </div>
-  </div>
+  <main class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Weatherly home">
+        <img src="./images/app-banner.png" alt="">
+        <span>Weatherly</span>
+      </a>
+      <form id="search-form" class="search-form" role="search">
+        <label class="sr-only" for="search">Search for a city</label>
+        <input type="search" id="search" name="search" placeholder="Search a city" autocomplete="off" required>
+        <button type="submit" id="btn-go">Search</button>
+      </form>
+    </header>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section id="weather-content" hidden>
+      <article class="current-card">
+        <div>
+          <p class="eyebrow">Current weather</p>
+          <h1 id="location"></h1>
+          <p id="date" class="muted"></p>
+          <p id="main" class="condition"></p>
+          <p id="info" class="muted"></p>
+        </div>
+        <div class="temperature-block">
+          <div id="icon" class="weather-icon" aria-hidden="true"></div>
+          <p><strong id="temp"></strong><span>°C</span></p>
+          <small id="feels-like"></small>
+        </div>
+      </article>
+
+      <section class="forecast-card" aria-labelledby="forecast-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Outlook</p>
+            <h2 id="forecast-heading">5-day forecast</h2>
+          </div>
+          <p class="muted">Daily conditions</p>
+        </div>
+        <div id="forecast" class="forecast-list"></div>
+      </section>
+    </section>
+  </main>
   <script src="./scripts/home.js"></script>
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('./sw.js')
-        .then(function () { console.log("Service Worker Registered"); })
-        .catch(err => console.log(`Service Worker: Error: ${err}`));
-    }
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
   </script>
 </body>
-
 </html>

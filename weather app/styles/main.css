@@ -1,145 +1,17 @@
-*{
-  font-size: 100%;
-  font-family: sans-serif;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  color: rgb(26, 26, 26);
-}
-body{
-    height: 100vh;
-    background-image: url(../images/pero-kalimero-9BJRGlqoIUk-unsplash.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: rgb(27, 29, 29);
-}
-header{
-  width: 60vw;
-  padding: 30px;
-  margin: 0px auto 20vh auto;
-}
-header > img{
-  height: 50px;
-  width: 50px;
-  margin-right: 20px;
-  float: left;
-}
-input[type=text] {
-  width: 60%;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 8px;
-  background-color: white;
-  background-image: url('../images/searchicon.png');
-  background-size: 10px;
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  margin: auto;
-  padding: 12px 20px 12px 40px;
-}
-button{
-  height: 30px;
-  width: 35px;
-  padding: 5px;
-  box-shadow: 5px 5px 3px #444444;;
-  border-radius: 3px;
-  background-color: rgba(0, 255, 242, 0.849);
-  border: none;
-  margin-block-start: 20px;
-}
-button:hover{
-  background-color: rgb(0, 217, 255);
-}
-header::after{
-  content: "";
-  clear: both;
-  display: table;
-}
-.container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  margin: auto;
-  padding: 10px;
-}
-  .current{
-  width: 86.67%;
-  height: 50vh;
-  margin: auto;
-  border-radius: 5px;
-  }
-    .location{
-      font-size: 2rem;
-      text-align: center;
-      margin: 5% auto;
-    }
-  .forcast{
-  width: 86.67%;
-  height: 80vh;
-  margin: 2.5% auto auto auto;
-  border-radius: 5px;
-  background-color: rgba(136, 174, 224, 0.548);
-  }
-
-@media screen and (max-width: 768px){
-  body{
-    height: 100vh;
-    background-image: url(../images/omid-armin-jmSD8f-yJXg-unsplash.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-header{
-  width: 90vw;
-  height: 10vh;
-  padding: 0px;
-  margin: 0px auto 5px auto;
-}
-header > img{
-  height: 50px;
-  width: 50px;
-  float: left;
-}
-input[type=text] {
-  width: 60%;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 8px;
-  background-color: white;
-  background-image: url('../images/searchicon.png');
-  background-size: 10px;
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  margin-top: 10px;
-  padding: 10px 20px 10px 40px;
-}
-header::after{
-  content: "";
-  clear: both;
-  display: table;
-}
-  .container{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.6fr 1fr;
-    grid-gap: 10px;
-    margin: auto;
-  }
-  .current{
-    width: 66.67%;
-    height: 50vh;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    margin: 10px auto;
-    float: none;
-    }
-    .forcast{
-      width: 66.67%;
-      height: 40vh;
-      border-radius: 5px;
-      margin: 100px auto;
-      float: none;
-    }
-}
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #f5f8ff; background: #061527; }
+* { box-sizing: border-box; }
+body { min-height: 100vh; margin: 0; background: linear-gradient(135deg, rgba(4, 18, 39, .86), rgba(21, 79, 113, .62)), url('../images/pero-kalimero-9BJRGlqoIUk-unsplash.jpg') center / cover fixed; }
+button, input { font: inherit; }
+.app-shell { width: min(100% - 32px, 1000px); margin: 0 auto; padding: 30px 0 56px; }
+.site-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 60px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; font-size: 1.25rem; font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
+.brand img { width: 38px; height: 38px; object-fit: contain; }
+.search-form { display: flex; width: min(100%, 420px); gap: 8px; }
+.search-form input { width: 100%; min-width: 0; padding: 12px 15px; color: #10233b; background: rgba(255,255,255,.94); border: 1px solid transparent; border-radius: 10px; outline: none; }
+.search-form input:focus { border-color: #69d7ff; box-shadow: 0 0 0 3px rgba(105,215,255,.25); }
+button { padding: 12px 17px; color: #06203b; background: #76ddff; border: 0; border-radius: 10px; font-weight: 750; cursor: pointer; } button:hover { background: #b2efff; }
+.status { min-height: 24px; margin: -38px 0 14px; color: #dbeaff; }.status.error { padding: 12px 15px; color: #ffe6e5; background: rgba(154, 30, 35, .65); border-radius: 10px; }.status.loading { color: #9ee8ff; }
+.current-card, .forecast-card { background: rgba(7, 29, 55, .78); border: 1px solid rgba(195, 228, 255, .24); border-radius: 20px; box-shadow: 0 20px 45px rgba(0, 0, 0, .22); backdrop-filter: blur(12px); }
+.current-card { display: flex; justify-content: space-between; align-items: center; min-height: 275px; padding: 34px 42px; }.eyebrow { margin: 0 0 7px; color: #8edfff; font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.6rem); letter-spacing: -.055em; }.muted { color: #bdd1e2; }.current-card .muted { margin: 8px 0; }.condition { margin: 24px 0 2px; font-size: 1.13rem; font-weight: 750; text-transform: capitalize; }.temperature-block { text-align: center; }.weather-icon { height: 100px; margin: -13px auto -8px; font-size: 4.5rem; line-height: 100px; }.temperature-block p { margin: 0; font-size: 4rem; font-weight: 750; line-height: 1; letter-spacing: -.07em; }.temperature-block p span { color: #b9d8ec; font-size: 1.5rem; vertical-align: top; }.temperature-block small { color: #bdd1e2; }
+.forecast-card { margin-top: 18px; padding: 28px; }.section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 18px; }.section-heading h2 { margin: 0; font-size: 1.35rem; }.section-heading .muted { margin: 0; font-size: .9rem; }.forecast-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }.forecast-day { padding: 14px 8px; text-align: center; background: rgba(170, 219, 255, .09); border-radius: 13px; }.forecast-day p { margin: 0; }.forecast-date { color: #d8ebf7; font-size: .8rem; }.forecast-icon { display: block; margin: 6px auto 1px; font-size: 2rem; }.forecast-condition { font-size: .85rem; }.forecast-temp { margin-top: 8px !important; }.forecast-temp strong { margin-right: 7px; }.forecast-temp span { color: #aac2d5; }.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media (max-width: 620px) { .app-shell { width: min(100% - 24px, 1000px); padding-top: 18px; }.site-header { align-items: stretch; flex-direction: column; gap: 16px; margin-bottom: 42px; }.search-form { width: 100%; }.status { margin-top: -30px; }.current-card { min-height: 0; padding: 27px 22px; }.forecast-card { padding: 22px 14px; }.forecast-list { grid-template-columns: 1fr; gap: 7px; }.forecast-day { display: grid; grid-template-columns: 1.2fr 54px 1fr 1fr; align-items: center; padding: 7px 12px; text-align: left; }.forecast-icon { margin: 0; }.forecast-temp { margin: 0 !important; text-align: right; }.current-card { align-items: flex-start; }.temperature-block p { font-size: 3rem; } }
